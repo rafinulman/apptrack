@@ -1,0 +1,137 @@
+<!-- Validation failure messages -->
+
+<% if @todo.errors.any? %>
+  <% @todo.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Simple full-width example-->
+
+<div class="page-header">
+  <h1>Add Todo</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_todo" class="form-horizontal">
+      <!-- Label and input for jobapp_id -->
+      <div class="form-group">
+        <label for="jobapp_id" class="col-sm-2 control-label">
+          Jobapp
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="jobapp_id" name="jobapp_id" placeholder="Jobapp" class="form-control" value="<%= @todo.jobapp_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for due_at -->
+      <div class="form-group">
+        <label for="due_at" class="col-sm-2 control-label">
+          Due at
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="due_at" name="due_at" placeholder="Due at" class="form-control" value="<%= @todo.due_at %>">
+        </div>
+      </div>
+
+      <!-- Label and input for action_id -->
+      <div class="form-group">
+        <label for="action_id" class="col-sm-2 control-label">
+          Action
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @todo.action_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for contact_id -->
+      <div class="form-group">
+        <label for="contact_id" class="col-sm-2 control-label">
+          Contact
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @todo.contact_id %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Create Todo" class="btn btn-success">
+          or
+          <a href="/todos">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- End simple full-width example-->
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Todo</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_todo" class="form-horizontal">
+          <!-- Label and input for jobapp_id -->
+          <div class="form-group">
+            <label for="jobapp_id" class="col-sm-2 control-label">
+              Jobapp
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="jobapp_id" name="jobapp_id" placeholder="Jobapp" class="form-control" value="<%= @todo.jobapp_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for due_at -->
+          <div class="form-group">
+            <label for="due_at" class="col-sm-2 control-label">
+              Due at
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="due_at" name="due_at" placeholder="Due at" class="form-control" value="<%= @todo.due_at %>">
+            </div>
+          </div>
+
+          <!-- Label and input for action_id -->
+          <div class="form-group">
+            <label for="action_id" class="col-sm-2 control-label">
+              Action
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="action_id" name="action_id" placeholder="Action" class="form-control" value="<%= @todo.action_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for contact_id -->
+          <div class="form-group">
+            <label for="contact_id" class="col-sm-2 control-label">
+              Contact
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @todo.contact_id %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Create Todo" class="btn btn-success">
+              or
+              <a href="/todos">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

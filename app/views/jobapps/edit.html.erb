@@ -1,0 +1,159 @@
+<!-- Validation failure messages -->
+
+<% if @jobapp.errors.any? %>
+  <% @jobapp.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<!-- Simple full-width example -->
+
+<div class="page-header">
+  <h1>Edit Jobapp #<%= @jobapp.id %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_jobapp/<%= @jobapp.id %>" class="form-horizontal">
+      <!-- Label and input for position -->
+      <div class="form-group">
+        <label for="position" class="col-sm-2 control-label">
+          Position
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="position" name="position" placeholder="Position" class="form-control" value="<%= @jobapp.position %>">
+        </div>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="col-sm-2 control-label">
+          User
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @jobapp.user_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for company_id -->
+      <div class="form-group">
+        <label for="company_id" class="col-sm-2 control-label">
+          Company
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @jobapp.company_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for interview_on -->
+      <div class="form-group">
+        <label for="interview_on" class="col-sm-2 control-label">
+          Interview on
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="interview_on" name="interview_on" placeholder="Interview on" class="form-control" value="<%= @jobapp.interview_on %>">
+        </div>
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="col-sm-2 control-label">
+          Notes
+        </label>
+        <div class="col-sm-10">
+          <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @jobapp.notes %></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Update Jobapp" class="btn btn-warning">
+          or
+          <a href="/jobapps/<%= @jobapp.id %>">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- End simple full-width example-->
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Jobapp #<%= @jobapp.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_jobapp/<%= @jobapp.id %>" class="form-horizontal">
+          <!-- Label and input for position -->
+          <div class="form-group">
+            <label for="position" class="col-sm-2 control-label">
+              Position
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="position" name="position" placeholder="Position" class="form-control" value="<%= @jobapp.position %>">
+            </div>
+          </div>
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @jobapp.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for company_id -->
+          <div class="form-group">
+            <label for="company_id" class="col-sm-2 control-label">
+              Company
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @jobapp.company_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for interview_on -->
+          <div class="form-group">
+            <label for="interview_on" class="col-sm-2 control-label">
+              Interview on
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="interview_on" name="interview_on" placeholder="Interview on" class="form-control" value="<%= @jobapp.interview_on %>">
+            </div>
+          </div>
+
+          <!-- Label and input for notes -->
+          <div class="form-group">
+            <label for="notes" class="col-sm-2 control-label">
+              Notes
+            </label>
+            <div class="col-sm-10">
+              <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @jobapp.notes %></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Update Jobapp" class="btn btn-warning">
+              or
+              <a href="/jobapps/<%= @jobapp.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->
