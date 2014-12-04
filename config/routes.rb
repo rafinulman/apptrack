@@ -1,4 +1,89 @@
 Rails.application.routes.draw do
+  # Routes for the Todo resource:
+  # CREATE
+  get('/todos/new', { :controller => 'todos', :action => 'new' })
+  get('/create_todo', { :controller => 'todos', :action => 'create' })
+
+  # READ
+  get('/todos', { :controller => 'todos', :action => 'index' })
+  get('/todos/:id', { :controller => 'todos', :action => 'show' })
+
+  # UPDATE
+  get('/todos/:id/edit', { :controller => 'todos', :action => 'edit' })
+  get('/update_todo/:id', { :controller => 'todos', :action => 'update' })
+
+  # DELETE
+  get('/delete_todo/:id', { :controller => 'todos', :action => 'destroy' })
+  #------------------------------
+
+  # Routes for the Contact resource:
+  # CREATE
+  get('/contacts/new', { :controller => 'contacts', :action => 'new' })
+  get('/create_contact', { :controller => 'contacts', :action => 'create' })
+
+  # READ
+  get('/contacts', { :controller => 'contacts', :action => 'index' })
+  get('/contacts/:id', { :controller => 'contacts', :action => 'show' })
+
+  # UPDATE
+  get('/contacts/:id/edit', { :controller => 'contacts', :action => 'edit' })
+  get('/update_contact/:id', { :controller => 'contacts', :action => 'update' })
+
+  # DELETE
+  get('/delete_contact/:id', { :controller => 'contacts', :action => 'destroy' })
+  #------------------------------
+
+  # Routes for the Jobapp resource:
+  # CREATE
+  get('/jobapps/new', { :controller => 'jobapps', :action => 'new' })
+  get('/create_jobapp', { :controller => 'jobapps', :action => 'create' })
+
+  # READ
+  get('/jobapps', { :controller => 'jobapps', :action => 'index' })
+  get('/jobapps/:id', { :controller => 'jobapps', :action => 'show' })
+
+  # UPDATE
+  get('/jobapps/:id/edit', { :controller => 'jobapps', :action => 'edit' })
+  get('/update_jobapp/:id', { :controller => 'jobapps', :action => 'update' })
+
+  # DELETE
+  get('/delete_jobapp/:id', { :controller => 'jobapps', :action => 'destroy' })
+  #------------------------------
+
+  # Routes for the Action resource:
+  # CREATE
+  get('/actions/new', { :controller => 'actions', :action => 'new' })
+  get('/create_action', { :controller => 'actions', :action => 'create' })
+
+  # READ
+  get('/actions', { :controller => 'actions', :action => 'index' })
+  get('/actions/:id', { :controller => 'actions', :action => 'show' })
+
+  # UPDATE
+  get('/actions/:id/edit', { :controller => 'actions', :action => 'edit' })
+  get('/update_action/:id', { :controller => 'actions', :action => 'update' })
+
+  # DELETE
+  get('/delete_action/:id', { :controller => 'actions', :action => 'destroy' })
+  #------------------------------
+
+  # Routes for the Company resource:
+  # CREATE
+  get('/companies/new', { :controller => 'companies', :action => 'new' })
+  get('/create_company', { :controller => 'companies', :action => 'create' })
+
+  # READ
+  get('/companies', { :controller => 'companies', :action => 'index' })
+  get('/companies/:id', { :controller => 'companies', :action => 'show' })
+
+  # UPDATE
+  get('/companies/:id/edit', { :controller => 'companies', :action => 'edit' })
+  get('/update_company/:id', { :controller => 'companies', :action => 'update' })
+
+  # DELETE
+  get('/delete_company/:id', { :controller => 'companies', :action => 'destroy' })
+  #------------------------------
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
