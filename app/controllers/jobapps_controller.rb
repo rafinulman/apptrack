@@ -1,4 +1,5 @@
 class JobappsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @jobapps = Jobapp.all
   end
@@ -17,7 +18,7 @@ class JobappsController < ApplicationController
     @jobapp.user_id = params[:user_id]
     @jobapp.company_id = params[:company_id]
     @jobapp.interview_on = params[:interview_on]
-    @jobapp.notes = params[:notes]
+    @jobapp.note = params[:note]
 
     if @jobapp.save
       redirect_to "/jobapps", :notice => "Jobapp created successfully."
@@ -37,7 +38,7 @@ class JobappsController < ApplicationController
     @jobapp.user_id = params[:user_id]
     @jobapp.company_id = params[:company_id]
     @jobapp.interview_on = params[:interview_on]
-    @jobapp.notes = params[:notes]
+    @jobapp.note = params[:note]
 
     if @jobapp.save
       redirect_to "/jobapps", :notice => "Jobapp updated successfully."

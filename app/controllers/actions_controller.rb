@@ -13,7 +13,7 @@ class ActionsController < ApplicationController
 
   def create
     @action = Action.new
-    @action.action = params[:action]
+    @action.name = params[:name]
 
     if @action.save
       redirect_to "/actions", :notice => "Action created successfully."
@@ -29,7 +29,7 @@ class ActionsController < ApplicationController
   def update
     @action = Action.find(params[:id])
 
-    @action.action = params[:action]
+    @action.name = params[:name]
 
     if @action.save
       redirect_to "/actions", :notice => "Action updated successfully."

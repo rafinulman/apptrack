@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @contacts = Contact.all
   end
@@ -19,7 +20,7 @@ class ContactsController < ApplicationController
     @contact.phone = params[:phone]
     @contact.linkedin_url = params[:linkedin_url]
     @contact.jobapp_id = params[:jobapp_id]
-    @contact.notes = params[:notes]
+    @contact.note = params[:note]
 
     if @contact.save
       redirect_to "/contacts", :notice => "Contact created successfully."
@@ -41,7 +42,7 @@ class ContactsController < ApplicationController
     @contact.phone = params[:phone]
     @contact.linkedin_url = params[:linkedin_url]
     @contact.jobapp_id = params[:jobapp_id]
-    @contact.notes = params[:notes]
+    @contact.note = params[:note]
 
     if @contact.save
       redirect_to "/contacts", :notice => "Contact updated successfully."

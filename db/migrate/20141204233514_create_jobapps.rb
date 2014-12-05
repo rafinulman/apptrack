@@ -5,7 +5,7 @@ class CreateJobapps < ActiveRecord::Migration
       t.integer :user_id
       t.integer :company_id
       t.date :interview_on
-      t.text :notes
+      t.text :note
 
       t.timestamps
 

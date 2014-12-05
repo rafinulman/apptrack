@@ -7,7 +7,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :phone
       t.string :linkedin_url
       t.integer :jobapp_id
-      t.text :notes
+      t.text :note
 
       t.timestamps
 
