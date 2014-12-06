@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Contact resource:
+  # CREATE
+  get('/contacts/new', { :controller => 'contacts', :action => 'new' })
+  get('/create_contact', { :controller => 'contacts', :action => 'create' })
+
+  # READ
+  get('/contacts', { :controller => 'contacts', :action => 'index' })
+  get('/contacts/:id', { :controller => 'contacts', :action => 'show' })
+
+  # UPDATE
+  get('/contacts/:id/edit', { :controller => 'contacts', :action => 'edit' })
+  get('/update_contact/:id', { :controller => 'contacts', :action => 'update' })
+
+  # DELETE
+  get('/delete_contact/:id', { :controller => 'contacts', :action => 'destroy' })
+  #------------------------------
+
   devise_for :users
   root 'jobapps#index'
 
@@ -51,23 +68,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_todo/:id', { :controller => 'todos', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Contact resource:
-  # CREATE
-  get('/contacts/new', { :controller => 'contacts', :action => 'new' })
-  get('/create_contact', { :controller => 'contacts', :action => 'create' })
-
-  # READ
-  get('/contacts', { :controller => 'contacts', :action => 'index' })
-  get('/contacts/:id', { :controller => 'contacts', :action => 'show' })
-
-  # UPDATE
-  get('/contacts/:id/edit', { :controller => 'contacts', :action => 'edit' })
-  get('/update_contact/:id', { :controller => 'contacts', :action => 'update' })
-
-  # DELETE
-  get('/delete_contact/:id', { :controller => 'contacts', :action => 'destroy' })
   #------------------------------
 
   # Routes for the Jobapp resource:

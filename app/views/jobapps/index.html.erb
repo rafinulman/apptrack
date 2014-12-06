@@ -1,7 +1,6 @@
 <div class="page-header">
   <h1>
-    Jobapps
-    <a href="/jobapps/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Current applications
   </h1>
 </div>
 
@@ -16,27 +15,36 @@
 <hr>
 
 <div class="row isotope-container">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a href="http://localhost:3000/jobapps/new"><h3 class="panel-title"> New position </h3></a>
+      </div>
+      <div class="panel-body">
+        <dl>
+          <a href="/jobapps/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+        </dl>
+        <div class="btn-group btn-group-justified">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+
 <% @jobapps.each do |jobapp| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Jobapp #<%= jobapp.id %></h3>
+        <h3 class="panel-title"><%= jobapp.position %> at <%= jobapp.company.name %></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Position</dt>
-          <dd><%= jobapp.position %></dd>
-
-          <dt>User</dt>
-          <dd><%= jobapp.user_id %></dd>
-
-          <dt>Company</dt>
-          <dd><%= jobapp.company_id %></dd>
-
           <dt>Interview on</dt>
           <dd><%= jobapp.interview_on %></dd>
-
-          <dt>Note</dt>
+          <dt>To-do's</dt>
+          <dd>TBU</dd>
+          <dt>Notes</dt>
           <dd><%= jobapp.note %></dd>
 
         </dl>

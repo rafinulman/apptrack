@@ -18,7 +18,7 @@
           <th>Phone</th>
           <th>Linkedin url</th>
           <th>Jobapp</th>
-          <th>Note</th>
+          <th>Notes</th>
           <th></th>
           <th></th>
           <th></th>
@@ -34,7 +34,7 @@
             <td><%= contact.phone %></td>
             <td><%= contact.linkedin_url %></td>
             <td><%= contact.jobapp_id %></td>
-            <td><%= contact.note %></td>
+            <td><%= contact.notes %></td>
             <td>
               <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
                 <i class="fa fa-search-plus"></i>
@@ -96,8 +96,8 @@
           <dt>Jobapp</dt>
           <dd><%= contact.jobapp_id %></dd>
 
-          <dt>Note</dt>
-          <dd><%= contact.note %></dd>
+          <dt>Notes</dt>
+          <dd><%= contact.notes %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
