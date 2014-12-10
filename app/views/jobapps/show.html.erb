@@ -22,18 +22,21 @@
               <dd><%= @jobapp.interview_on %></dd>
 
               <dt>Notes</dt>
-              <dd><%= @jobapp.note %>... <a href="temp">(edit)</a></dd>
+              <dd><%= @jobapp.note %>... <a href="http://localhost:3000/jobapps/<%=@jobapp.id%>/edit">(edit)</a></dd>
 
               <dt>To-dos</dt>
-              <dd><%= @jobapp.note %></dd>
+              <dd><ul>
+              <% @todos.each do |todo| %>
+                <li><a href = "http://localhost:3000/todos"> <%= todo.action.name%></a></li>
+              <% end %>
+              </ul></dd>
 
               <dt>Contacts</dt>
               <dd><ul>
               <% @contacts.each do |contact| %>
-              <li><a href = "http://localhost:3000/contacts/1"> <%=contact.first_name%> <%=contact.last_name%></a></li>
+                <li><a href = "http://localhost:3000/contacts/<%=contact.id%>"> <%=contact.first_name%> <%=contact.last_name%></a></li>
               <% end %>
               </ul></dd>
-            </dl>
             <div class="btn-group btn-group-justified">
               <a href="/jobapps" class="btn btn-primary">
                 <i class="fa fa-chevron-left"></i>

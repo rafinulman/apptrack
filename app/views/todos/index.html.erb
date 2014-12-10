@@ -1,59 +1,9 @@
 <div class="page-header">
   <h1>
-    Todos
+    To-do's: you got this!
     <a href="/todos/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
-
-<!-- Simple table layout example -->
-
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Jobapp</th>
-          <th>Due at</th>
-          <th>Action</th>
-          <th>Contact</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @todos.each do |todo| %>
-          <tr>
-            <td><%= todo.jobapp_id %></td>
-            <td><%= todo.due_at %></td>
-            <td><%= todo.action_id %></td>
-            <td><%= todo.contact_id %></td>
-            <td>
-              <a href="/todos/<%= todo.id %>" class="btn btn-primary">
-                <i class="fa fa-search-plus"></i>
-              </a>
-            </td>
-            <td>
-              <a href="/todos/<%= todo.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-            </td>
-            <td>
-              <a href="/delete_todo/<%= todo.id %>" class="btn btn-danger">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- End simple table layout example -->
-
-<!-- Responsive, Isotope-based layout example -->
 
 <div class="row">
   <div class="col-xs-12">
@@ -68,39 +18,39 @@
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Todo #<%= todo.id %></h3>
+        <h3 class="panel-title">To do for <%= todo.jobapp.company.name %> (<a href="/todos/">edit</a>)</h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Jobapp</dt>
-          <dd><%= todo.jobapp_id %></dd>
+          <dt>Company</dt>
+          <dd><%= todo.jobapp.company.name %></dd>
 
           <dt>Due at</dt>
           <dd><%= todo.due_at %></dd>
 
           <dt>Action</dt>
-          <dd><%= todo.action_id %></dd>
+          <dd><%= todo.action.name %></dd>
 
-          <dt>Contact</dt>
-          <dd><%= todo.contact_id %></dd>
-
+          <% if todo.contact %>
+            <dt>Contact</dt>
+            <dd><a href ="http://localhost:3000/contacts/<%=todo.contact.id%>"><%= todo.contact.first_name %> <%= todo.contact.last_name %></a> (<%= todo.contact.email %>)</dd>
+          <% end %>
         </dl>
         <div class="btn-group btn-group-justified">
-          <a href="/todos/<%= todo.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/todos/<%= todo.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_todo/<%= todo.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
+        <a href="/complete_todo/<%= todo.id %>">
+          <button type="button" class="btn btn-primary btn-md" >
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Mark done
+          </button>
+        </a>
+        <a href="/delete_todo/<%= todo.id %>">
+          <button type="button" class="btn btn-warning btn-md" >
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete
+          </button>
+        </a>
+        </div>
         </div>
       </div>
     </div>
-  </div>
 <% end %>
 </div>
 

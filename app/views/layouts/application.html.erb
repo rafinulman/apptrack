@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Apptrack</title>
+  <title>AppTrack</title>
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -11,8 +11,10 @@
     /* Only necessary if you are using navbar-fixed-top */
     body {
       padding-top: 60px;
+      background-image: url('white-snow-background.jpg');
     }
   </style>
+  <link rel="shortcut icon" href="favicon.ico">
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -33,23 +35,31 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Apptrack</a>
+      <a href="/" class="navbar-brand"><img src="AppTrack logo.jpg"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/todos">Todos</a></li>
+        <li><a href="/todos">To-do's</a></li>
         <li><a href="/contacts">Contacts</a></li>
-        <li><a href="/jobapps">Jobapps</a></li>
-        <li><a href="/actions">Actions</a></li>
-        <li><a href="/companies"> Companies</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="/jobapps">Applications</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/actions">Actions</a></li>
+            <li><a href="/companies"> Companies</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </li>
+        
+        
+        <li><a href="/about">About</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if 1 > 2 %>
-          <li><a href="/users/edit">Oscar the Grouch</a></li>
+        <% if 1 < 2 %>
           <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
         <% else %>
           <li><a href="/users/sign_up">Sign up</a></li>

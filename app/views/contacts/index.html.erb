@@ -1,63 +1,9 @@
 <div class="page-header">
   <h1>
-    Contacts
+    1-800 Contacts all up in this place!
     <a href="/contacts/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
-
-<!-- Simple table layout example -->
-
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Linkedin url</th>
-          <th>Jobapp</th>
-          <th>Notes</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @contacts.each do |contact| %>
-          <tr>
-            <td><%= contact.first_name %></td>
-            <td><%= contact.last_name %></td>
-            <td><%= contact.email %></td>
-            <td><%= contact.phone %></td>
-            <td><%= contact.linkedin_url %></td>
-            <td><%= contact.jobapp_id %></td>
-            <td><%= contact.notes %></td>
-            <td>
-              <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
-                <i class="fa fa-search-plus"></i>
-              </a>
-            </td>
-            <td>
-              <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-            </td>
-            <td>
-              <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- End simple table layout example -->
 
 <!-- Responsive, Isotope-based layout example -->
 
@@ -69,53 +15,56 @@
 
 <hr>
 
-<div class="row isotope-container">
-<% @contacts.each do |contact| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Contact #<%= contact.id %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>First name</dt>
-          <dd><%= contact.first_name %></dd>
+<div class="row isotope-container"> 
+<% @jobapps.each do |jobapp| %>
+<% if @contacts.where(:jobapp_id => jobapp).count > 0%>
+<%= Jobapp.find_by(:id => jobapp).company.name %>
+<% end %>
+<div class ="row isotope-container">
+  <% @contacts.where(:jobapp_id => jobapp).each do |contact| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= contact.first_name %> <%= contact.last_name %> <a href="http://localhost:3000/contacts/share/<%=contact.id%>/">(share)</a></h3>
+        </div>
+        <div class="panel-body">
+          <dl>
+            <h5>Company: <%= contact.jobapp.company.name %></h5>
 
-          <dt>Last name</dt>
-          <dd><%= contact.last_name %></dd>
+            <dt>Email</dt>
+            <dd><%= contact.email %></dd>
 
-          <dt>Email</dt>
-          <dd><%= contact.email %></dd>
+            <dt>Phone</dt>
+            <dd><%= contact.phone %></dd>
 
-          <dt>Phone</dt>
-          <dd><%= contact.phone %></dd>
+            <dt>Notes</dt>
+            <dd><%= contact.notes %>
+            </dd>
 
-          <dt>Linkedin url</dt>
-          <dd><%= contact.linkedin_url %></dd>
+            <% if contact.linkedin_url %>
+              <dt>LinkedIn</dt>
+              <dd><a href="<%=contact.linkedin_url%>">Link</a></dd>
+            <% end %>
 
-          <dt>Jobapp</dt>
-          <dd><%= contact.jobapp_id %></dd>
+          </dl>
+          <div class="btn-group btn-group-justified">
+            <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
 
-          <dt>Notes</dt>
-          <dd><%= contact.notes %></dd>
+            <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
 
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
+            <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
+</div>
 <% end %>
 </div>
 

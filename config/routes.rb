@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'jobapps#index'
+
   # Routes for the Contact resource:
+  # SHARE
+  get('/contacts/share/:contact_id', { :controller => 'contacts', :action => 'share' })
+  get('/share_contact/:id', { :controller => 'contacts', :action => 'create' })
+
   # CREATE
   get('/contacts/new', { :controller => 'contacts', :action => 'new' })
   get('/create_contact', { :controller => 'contacts', :action => 'create' })
@@ -16,9 +23,6 @@ Rails.application.routes.draw do
   get('/delete_contact/:id', { :controller => 'contacts', :action => 'destroy' })
   #------------------------------
 
-  devise_for :users
-  root 'jobapps#index'
-
   # Routes for the Action resource:
   # CREATE
   get('/actions/new', { :controller => 'actions', :action => 'new' })
@@ -34,6 +38,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_action/:id', { :controller => 'actions', :action => 'destroy' })
+
   #------------------------------
 
   # Routes for the Company resource:
@@ -68,6 +73,10 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_todo/:id', { :controller => 'todos', :action => 'destroy' })
+
+  # COMPLETE (LIKE DELETE BUT "POSITIVE")
+  get('/complete_todo/:id', { :controller => 'todos', :action => 'complete' })
+
   #------------------------------
 
   # Routes for the Jobapp resource:
@@ -85,6 +94,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_jobapp/:id', { :controller => 'jobapps', :action => 'destroy' })
+
+  # ABOUT
+  get('/about', { :controller => 'jobapps', :action => 'about'})
   #------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.

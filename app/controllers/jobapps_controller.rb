@@ -1,5 +1,9 @@
 class JobappsController < ApplicationController
   before_action :authenticate_user!
+  def about
+    render('about')
+  end
+  
   def index
     @jobapps = Jobapp.where(:user_id => current_user)
   end
@@ -7,6 +11,7 @@ class JobappsController < ApplicationController
   def show
     @jobapp = Jobapp.find(params[:id])
     @contacts = Contact.where(:jobapp_id=>@jobapp.id)
+    @todos = Todo.where(:jobapp_id=>@jobapp.id)
     @comapny_wiki = 'http://en.wikipedia.org/w/api.php?format=json&action=query&titles=Main%20Page&prop=revisions&rvprop=content'
   end
 

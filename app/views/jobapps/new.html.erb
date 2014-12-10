@@ -12,7 +12,7 @@
 <!-- Simple full-width example-->
 
 <div class="page-header">
-  <h1>Add Application</h1>
+  <h1>Add new application</h1>
 </div>
 <!-- Responsive panel example -->
 
@@ -30,10 +30,9 @@
               Position
             </label>
             <div class="col-sm-10">
-              <input type="text" id="position" name="position" placeholder="Position" class="form-control" value="<%= @jobapp.position %>">
+              <input type="text" id="position" name="position" placeholder="e.g. 'marine biologist'" class="form-control" value="<%= @jobapp.position %>">
             </div>
           </div>
-
           <!-- Note: need need to change so that default is current company -->
           <!-- Label and input for company -->
           <div class="form-group">
@@ -42,16 +41,18 @@
              </label>
              <div class="col-sm-10">
                 <%= select_tag(:company_id, options_from_collection_for_select(Company.all, :id, :name), :class => "form-control") %>
+                <dd>Can't find the company? <a href="http://localhost:3000/companies/new">Add it here!</a></dd>
              </div>
+             
           </div>
-
+          
           <!-- Label and input for interview_on -->
           <div class="form-group">
             <label for="interview_on" class="col-sm-2 control-label">
               Interview on
             </label>
             <div class="col-sm-10">
-              <input type="text" id="interview_on" name="interview_on" placeholder="Interview on" class="form-control" value="<%= @jobapp.interview_on %>">
+              <input type="text" id="interview_on" name="interview_on" placeholder="2015-01-01" class="form-control" value="<%= @jobapp.interview_on %>">
             </div>
           </div>
 
@@ -61,7 +62,7 @@
               Notes
             </label>
             <div class="col-sm-10">
-              <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @jobapp.note %></textarea>
+              <textarea id="note" name="note" placeholder="What's on your mind?" class="form-control" rows="3"><%= @jobapp.note %></textarea>
             </div>
           </div>
 
