@@ -45,7 +45,10 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    @jobapps = Jobapp.where(:user_id => current_user.id)
     @contact = Contact.find(params[:id])
+    jobapps = @jobapps.pluck(:company_id)
+    @companies = Company.where(:id=>jobapps)
   end
 
   def update
